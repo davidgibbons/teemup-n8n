@@ -1,0 +1,15 @@
+# Default Timezone
+default_tz: America/Los_Angeles
+
+# Meetup Groups to fetch (Name: URL)
+meetup_groups:
+  # Example Group: https://www.meetup.com/example-group/events/
+
+# Optional: Configuration for mapping specific events to Discord threads
+# event_config:
+#   default:
+#     reminder: true
+#     thread_id: null # Default thread ID if none matches
+#   "Some Event Title":
+#     reminder: true
+#     thread_id: "1234567890" # Discord Thread ID
