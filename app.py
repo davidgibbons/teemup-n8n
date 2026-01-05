@@ -52,12 +52,21 @@ def _get_config() -> Dict[str, Any]:
 def _pick_event_cfg(title: str, cfg: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
     title_lc = (title or "").lower()
     chosen = cfg.get("default", {}) or {}
+    
+    # Track the longest matching key found so far
+    longest_match_len = -1
+    
     for key in cfg.keys():
         if key == "default":
             continue
+            
+        # Check if key is in the title
         if key.lower() in title_lc:
-            chosen = cfg[key]
-            break
+            # If this key is longer than our previous best match, take it
+            if len(key) > longest_match_len:
+                longest_match_len = len(key)
+                chosen = cfg[key]
+                
     return chosen
 
 
